@@ -42,7 +42,11 @@
   '("True" "False" "null"))
 
 (defvar ada-mini-font-lock-keywords
-  `((,(regexp-opt (append ada-mini-keywords ada-mini-types ada-mini-constants) 'symbols)
+  `((,(regexp-opt ada-mini-types 'symbols)
+     . font-lock-type-face)
+    (,(regexp-opt ada-mini-constants 'symbols)
+     . font-lock-constant-face)
+    (,(regexp-opt ada-mini-keywords 'symbols)
      . font-lock-keyword-face)))
 
 (define-derived-mode ada-mini-mode prog-mode "ada-mini"
